@@ -1,0 +1,18 @@
+﻿@model GOH.Entities.BlogEntities.ViewModels.BlogLanding
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<article class="blog">
+
+    <h2>Index</h2>
+
+    <p>@Html.DisplayFor(m => m.Blog.Content)</p>
+
+</article>
+
+
+<a href="~/Blog/List">List</a>

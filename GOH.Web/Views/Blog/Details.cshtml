@@ -1,0 +1,58 @@
+﻿@using GOH.Entities.BlogEntities
+@model GOH.Entities.BlogEntities.Blog
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TagsText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TagsText)
+        </dd>
+    </dl>
+
+    <h4>Do bharúil</h4>
+    <hr />
+
+    <div id="create-comment">
+        @Html.Action("Create", "Comments", new { blogId = Model.BlogId })
+    </div>
+
+    <section id="comment_list">
+        @Html.Action("BlogComments", "Comments", new { id = Model.BlogId })
+    </section>
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BlogId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<div id="create-reply">
+    @Html.Action("Create", "Comments", new { blogId = Model.BlogId })
+</div>

@@ -1,0 +1,10 @@
+﻿@model GOH.Entities.BlogEntities.Comment
+
+@{
+    ViewBag.Title = "Reply";
+    Layout = "~/Views/Shared/_Layout_Popup.cshtml";
+}
+
+<h2>Reply To @ViewBag.ReplyTo</h2>
+
+@Html.Partial("_Create", Model)

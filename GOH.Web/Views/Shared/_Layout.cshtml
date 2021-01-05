@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+
+
+    @Styles.Render("~/Content/jqueryui")
+
+
+    @if (IsSectionDefined("SummernoteCss"))
+    {
+        @RenderSection("SummernoteCss")
+    }
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i" rel="stylesheet">
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("topNav");
+
+            if (x.className === "topNav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topNav";
+            }
+        }
+
+        function showNav() {
+            var x = document.getElementById("topNav");
+
+            if (x.className === "navBar") {
+                x.className += " shown";
+            } else {
+                x.className = "navBar";
+            }
+        }
+
+        $(function () {
+            $("#topNav").mouseleave(function () {
+                $(this).removeClass("shown");
+            });
+        });
+    </script>
+
+
+
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <h1>GOH</h1>
+        </div>
+    </header>
+
+    @Html.Partial("_LoginPartial")
+
+
+    <nav role="navigation" class="mainNav">
+        <div class="wrapper">
+            <div class="navBar" id="topNav">
+                @Html.ActionLink("Home", "Index", "Home")
+                @Html.ActionLink("Contact", "Contact", "Home")
+                @Html.ActionLink("About", "About", "Home")
+                @Html.ActionLink("Blogs", "List", "Blog")
+                @if (Request.IsAuthenticated)
+                {
+                    @Html.ActionLink("Blog List", "List", "Blog")
+                }
+                @*<a href="javascript:void(0);" class="icon" onclick="showNav()">
+                    <i class="fa fa-bars"></i>
+                </a>*@
+            </div>
+        </div>
+    </nav>
+
+    <main class="wrapper">
+        <div class="row">
+
+            <div class="col col-1of2">
+
+                @RenderBody()
+
+            </div>
+            <div class="col col-2of2">
+
+                <div class="supplementary">
+
+                    <ul>
+
+                        <li>In placerat. Massa pede orci nisl vitae ipsum leo, montes quam repudiandae vehicula est, wisi </li>
+                        <li>In placerat. Massa pede orci nisl vitae ipsum leo, montes quam repudiandae vehicula est, wisi </li>
+                        <li>In placerat. Massa pede orci nisl vitae ipsum leo, montes quam repudiandae vehicula est, wisi </li>
+                        <li>In placerat. Massa pede orci nisl vitae ipsum leo, montes quam repudiandae vehicula est, wisi </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </main>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/blog-sln")
+
+    @RenderSection("scripts", required: false)
+
+
+    <footer>
+        <div class="wrapper">
+            <div class="footer">footer</div>
+        </div>
+    </footer>
+</body>
+</html>

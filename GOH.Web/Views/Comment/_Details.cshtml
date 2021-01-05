@@ -1,0 +1,14 @@
+﻿@using GOH.Entities.BlogEntities
+@model Comment
+
+<li>
+    <cite>
+        @Html.DisplayFor(model => model.CommenterName)
+
+    </cite>
+
+    <p>
+        @Html.DisplayFor(model => model.Value)
+    </p>
+    @Html.ActionLink("Reply", "Reply", new { BlogId = Model.BlogId, ParentId = Model.CommentId, ReplyTo = Model.CommenterName }, new { @class = "reply", data_parentid = Model.CommentId })
+</li>
